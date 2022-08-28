@@ -12,7 +12,7 @@ const routes: Routes = [
     ],
   },
   { path: 'store', component: StoreComponent },
-  { path: 'store/:uid', component: StoreComponent },
+  { path: 'store/:storeUid', component: StoreComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -1,30 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-const stores: store[] = [
-  { storeUid: 0, storeId: 'AA', name: '北門店', cashbox: 999999 },
-  { storeUid: 1, storeId: 'BB', name: '復國店', cashbox: 999999 },
-  { storeUid: 2, storeId: 'CC', name: '高雄左營店', cashbox: 999999 },
-  { storeUid: 3, storeId: 'DD', name: '工學店', cashbox: 999999 },
-  { storeUid: 4, storeId: 'WW', name: '倉庫', cashbox: 999999 }
-];
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StoreService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   findAll() {
-    return stores;
+    return this.http.get<store[]>(`${environment.api_url}/store/list`);
   }
 
-  findByUid(uid: number) {
-    return stores[uid];
+  find(storeUid: number) {
+    return this.http.get<store>(`${environment.api_url}/store/${storeUid}`);
   }
 
   save(s: store) {
-    stores.push(s);
+    if (s.storeUid == null) {
+      return this.http.post<store>(`${environment.api_url}/store`, s);
+    } else {
+      return this.http.put<store>(`${environment.api_url}/store`, s);
+    }
   }
 }
 

@@ -17,6 +17,7 @@ import { BasicComponent } from './templates/pages/basic/basic.component';
 import { StoreComponent } from './pages/store/store.component';
 import { HomeComponent } from './pages/home/home.component';
 import { StoresComponent } from './pages/stores/stores.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const MaterialModules = [
   MatSidenavModule,
@@ -38,6 +39,7 @@ const MaterialModules = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,

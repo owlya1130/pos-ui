@@ -26,6 +26,7 @@ export class StoreComponent implements OnInit {
     } else {
       this.store.disable();
     }
+    this.store.controls['cashbox'].disable();
   }
   get editable() {
     return this._editable;
@@ -35,9 +36,9 @@ export class StoreComponent implements OnInit {
     private storeService: StoreService,
     private route: ActivatedRoute
   ) {
-    const uid = this.route.snapshot.params['uid'];
-    if (uid != undefined) {
-      this.store.setValue(this.findByUid(uid));
+    const storeUid = this.route.snapshot.params['storeUid'];
+    if (storeUid != undefined) {
+      this.find(storeUid);
       this.editable = false;
     } else {
       this.editable = true;
@@ -47,12 +48,20 @@ export class StoreComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  findByUid(uid: number) {
-    return this.storeService.findByUid(uid);
+  find(storeUid: number) {
+    this.storeService
+      .find(storeUid)
+      .subscribe(store => {
+        this.store.setValue(store);
+      });
   }
 
   save() {
-    this.storeService.save(this.store.value as store);
-    this.editable = false;
+    this.storeService
+      .save(this.store.value as store)
+      .subscribe(store => {
+        this.store.setValue(store);
+        this.editable = false;
+      });
   }
 }
