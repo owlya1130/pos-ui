@@ -1,0 +1,15 @@
+
+.basic-content-block {
+    margin: 10px 10px 10px 10px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.basic-tool-block {
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
