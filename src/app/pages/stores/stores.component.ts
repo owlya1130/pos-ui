@@ -9,7 +9,7 @@ import { store, StoreService } from 'src/app/services/store.service';
 })
 export class StoresComponent implements OnInit {
 
-  displayedColumns: string[] = ['#', 'id', 'name', 'sales_figures'];
+  displayedColumns: string[] = ['#', 'storeId', 'name', 'cashbox'];
   dataSource: store[];
 
   constructor(
@@ -26,7 +26,7 @@ export class StoresComponent implements OnInit {
     if(s == undefined) {
       this.router.navigate(["store"]);
     } else {
-      this.router.navigate(["store", s.uid]);
+      this.router.navigate(["store", s.storeUid]);
     }    
   }
 

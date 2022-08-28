@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
 const stores: store[] = [
-  { uid: 0, id: 'AA', name: '北門店', sales_figures: 999999 },
-  { uid: 1, id: 'BB', name: '復國店', sales_figures: 999999 },
-  { uid: 2, id: 'CC', name: '高雄左營店', sales_figures: 999999 },
-  { uid: 3, id: 'DD', name: '工學店', sales_figures: 999999 },
-  { uid: 4, id: 'WW', name: '倉庫', sales_figures: 999999 }
+  { storeUid: 0, storeId: 'AA', name: '北門店', cashbox: 999999 },
+  { storeUid: 1, storeId: 'BB', name: '復國店', cashbox: 999999 },
+  { storeUid: 2, storeId: 'CC', name: '高雄左營店', cashbox: 999999 },
+  { storeUid: 3, storeId: 'DD', name: '工學店', cashbox: 999999 },
+  { storeUid: 4, storeId: 'WW', name: '倉庫', cashbox: 999999 }
 ];
 
 @Injectable({
@@ -29,8 +29,8 @@ export class StoreService {
 }
 
 export interface store {
-  uid: number;
-  id: string;
+  storeUid: number;
+  storeId: string;
   name: string;
-  sales_figures: number;
+  cashbox: number;
 }

@@ -12,10 +12,10 @@ import { store, StoreService } from 'src/app/services/store.service';
 export class StoreComponent implements OnInit {
 
   store = new FormGroup({
-    uid: new FormControl(),
-    id: new FormControl('', Validators.required),
+    storeUid: new FormControl(),
+    storeId: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
-    sales_figures: new FormControl(0)
+    cashbox: new FormControl(0)
   });
 
   _editable = false;
