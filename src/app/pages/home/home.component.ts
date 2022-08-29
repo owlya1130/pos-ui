@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     id: 'store',
     name: '門市'
   }, {
-    id: 'property',
+    id: 'properties',
     name: '屬性'
   }, {
     id: 'syscfg',

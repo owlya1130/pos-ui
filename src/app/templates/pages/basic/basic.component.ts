@@ -12,17 +12,10 @@ export class BasicComponent implements OnInit {
   @Output() editableChange = new EventEmitter<boolean>();
   @Output() save = new EventEmitter<void>();
 
-  isNew: boolean = false;
-
   constructor(
     private location: Location,
     private route: ActivatedRoute
-  ) {
-    const uid = this.route.snapshot.params['uid'];
-    if (uid == undefined) {
-      this.isNew = true;
-    }
-  }
+  ) {  }
 
   ngOnInit(): void {
 
