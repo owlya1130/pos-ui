@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { vender, VenderService } from 'src/app/services/vender.service';
+import { Vender, VenderService } from 'src/app/services/vender.service';
 
 @Component({
   selector: 'app-vender',
@@ -55,7 +55,7 @@ export class VenderComponent implements OnInit {
 
   save() {
     this.venderService
-      .save(this.vender.value as vender)
+      .save(this.vender.value as Vender)
       .subscribe(vender => {
         this.vender.setValue(vender);
         this.editable = false;

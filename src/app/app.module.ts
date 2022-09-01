@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { StoresComponent } from './pages/stores/stores.component';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { VenderComponent } from './pages/vender/vender.component';
+import { ProductCatagoryComponent } from './pages/product-catagory/product-catagory.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { MemberLevelComponent } from './pages/member-level/member-level.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 const MaterialModules = [
   MatSidenavModule,
@@ -30,7 +36,8 @@ const MaterialModules = [
   MatIconModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTabsModule
+  MatTabsModule,
+  MatSlideToggleModule
 ];
 
 @NgModule({
@@ -41,7 +48,12 @@ const MaterialModules = [
     HomeComponent,
     StoresComponent,
     PropertiesComponent,
-    VenderComponent
+    VenderComponent,
+    ProductCatagoryComponent,
+    PaymentComponent,
+    MemberLevelComponent,
+    ProductComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

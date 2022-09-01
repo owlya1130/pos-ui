@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { store, StoreService } from 'src/app/services/store.service';
+import { Store, StoreService } from 'src/app/services/store.service';
 
 
 @Component({
@@ -58,7 +58,7 @@ export class StoreComponent implements OnInit {
 
   save() {
     this.storeService
-      .save(this.store.value as store)
+      .save(this.store.value as Store)
       .subscribe(store => {
         this.store.setValue(store);
         this.editable = false;

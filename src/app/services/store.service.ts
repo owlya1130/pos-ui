@@ -10,23 +10,23 @@ export class StoreService {
   constructor(private http: HttpClient) { }
 
   findAll() {
-    return this.http.get<store[]>(`${environment.api_url}/store/list`);
+    return this.http.get<Store[]>(`${environment.api_url}/store/list`);
   }
 
   find(storeUid: number) {
-    return this.http.get<store>(`${environment.api_url}/store/${storeUid}`);
+    return this.http.get<Store>(`${environment.api_url}/store/${storeUid}`);
   }
 
-  save(s: store) {
+  save(s: Store) {
     if (s.storeUid == null) {
-      return this.http.post<store>(`${environment.api_url}/store`, s);
+      return this.http.post<Store>(`${environment.api_url}/store`, s);
     } else {
-      return this.http.put<store>(`${environment.api_url}/store`, s);
+      return this.http.put<Store>(`${environment.api_url}/store`, s);
     }
   }
 }
 
-export interface store {
+export interface Store {
   storeUid: number;
   storeId: string;
   name: string;

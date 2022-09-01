@@ -10,23 +10,23 @@ export class VenderService {
   constructor(private http: HttpClient) { }
 
   findAll() {
-    return this.http.get<vender[]>(`${environment.api_url}/vender/list`);
+    return this.http.get<Vender[]>(`${environment.api_url}/vender/list`);
   }
 
   find(venderUid: number) {
-    return this.http.get<vender>(`${environment.api_url}/vender/${venderUid}`);
+    return this.http.get<Vender>(`${environment.api_url}/vender/${venderUid}`);
   }
 
-  save(v: vender) {
+  save(v: Vender) {
     if (v.venderUid == null) {
-      return this.http.post<vender>(`${environment.api_url}/vender`, v);
+      return this.http.post<Vender>(`${environment.api_url}/vender`, v);
     } else {
-      return this.http.put<vender>(`${environment.api_url}/vender`, v);
+      return this.http.put<Vender>(`${environment.api_url}/vender`, v);
     }
   }
 }
 
-export interface vender {
+export interface Vender {
   venderUid: number;
   venderId: string;
   name: string;

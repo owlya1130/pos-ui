@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { store, StoreService } from 'src/app/services/store.service';
+import { Store, StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-stores',
@@ -10,7 +10,7 @@ import { store, StoreService } from 'src/app/services/store.service';
 export class StoresComponent implements OnInit {
 
   displayedColumns: string[] = ['#', 'storeId', 'name', 'cashbox'];
-  dataSource: store[] = [];
+  dataSource: Store[] = [];
 
   constructor(
     private storeService: StoreService,
@@ -24,7 +24,7 @@ export class StoresComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toStore(s?: store) {
+  toStore(s?: Store) {
     if (s == undefined) {
       this.router.navigate(["store"]);
     } else {
