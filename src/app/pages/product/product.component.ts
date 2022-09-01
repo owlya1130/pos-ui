@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
       productUid: new FormControl(),
       productId: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),
-      catagoryUid: new FormControl('', Validators.required),
+      catagoryUid: new FormControl(0, Validators.required),
       service: new FormControl(false, Validators.required),
       allowSellInsufficient: new FormControl(false, Validators.required),
       conbination: new FormControl(false, Validators.required),
