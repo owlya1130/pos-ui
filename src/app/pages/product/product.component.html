@@ -1,1 +1,128 @@
-<p>product works!</p>
+<app-basic [(editable)]="editable" (save)="save()">
+    <div content [formGroup]="form">
+        <fieldset>
+            <legend>基本資料</legend>
+
+            <div formGroupName="product" fxLayout="column" fxLayoutAlign="space-evenly center">
+                <mat-form-field appearance="outline">
+                    <mat-label>名稱</mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>ID</mat-label>
+                    <input matInput type="text" formControlName="productId">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>產品類別</mat-label>
+                    <mat-select formControlName="catagoryUid">
+                        <mat-option *ngFor="let productCatagory of productCatagorys"
+                            [value]="productCatagory.catagoryUid">{{productCatagory.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-slide-toggle formControlName="service" labelPosition="before">是否扣庫存</mat-slide-toggle>
+                <mat-slide-toggle formControlName="allowSellInsufficient" labelPosition="before">庫存不足允許銷售
+                </mat-slide-toggle>
+                <mat-slide-toggle formControlName="conbination" labelPosition="before">是否為組合商品</mat-slide-toggle>
+                <mat-slide-toggle formControlName="invalid" labelPosition="before">是否作廢</mat-slide-toggle>
+                <mat-slide-toggle formControlName="deleted" labelPosition="before">是否刪除</mat-slide-toggle>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>note</mat-label>
+                    <textarea matInput formControlName="note"></textarea>
+                </mat-form-field>
+            </div>
+        </fieldset>
+        <fieldset formArrayName="prices">
+            <legend>
+                售價
+                <button mat-icon-button color="primary" (click)="addPrice()">
+                    <mat-icon>add_box</mat-icon>
+                </button>
+            </legend>
+            <ng-container *ngFor="let price of priceArray.controls; let idx = index">
+                <div [formGroupName]="idx" fxLayout="column" fxLayoutAlign="space-evenly center">
+                    售價{{idx + 1}}
+                    <mat-form-field appearance="outline">
+                        <mat-label>等級</mat-label>
+                        <mat-select formControlName="levelUid">
+                            <mat-option *ngFor="let memberLevel of memberLevels"
+                                [value]="memberLevel.levelUid">{{memberLevel.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>售價</mat-label>
+                        <input matInput type="text" formControlName="price">
+                    </mat-form-field>
+                </div>
+            </ng-container>
+        </fieldset>
+        <fieldset formArrayName="barcodes">
+            <legend>
+                條碼
+                <button mat-icon-button color="primary" (click)="addBarcode()">
+                    <mat-icon>add_box</mat-icon>
+                </button>
+            </legend>
+            <ng-container *ngFor="let barcode of barcodeArray.controls; let idx = index">
+                <div [formGroupName]="idx" fxLayout="column" fxLayoutAlign="space-evenly center">
+                    條碼{{idx + 1}}
+                    <mat-form-field appearance="outline">
+                        <mat-label>barcode</mat-label>
+                        <input matInput type="text" formControlName="barcode">
+                    </mat-form-field>
+                </div>
+            </ng-container>
+        </fieldset>
+        <fieldset formArrayName="venders">
+            <legend>
+                供應商
+                <button mat-icon-button color="primary" (click)="addVender()">
+                    <mat-icon>add_box</mat-icon>
+                </button>
+            </legend>
+            <ng-container *ngFor="let vender of venderArray.controls; let idx = index">
+                <div [formGroupName]="idx" fxLayout="column" fxLayoutAlign="space-evenly center">
+                    供應商{{idx + 1}}
+                    <mat-form-field appearance="outline">
+                        <mat-label>供應商</mat-label>
+                        <mat-select formControlName="venderUid">
+                            <mat-option *ngFor="let vender of venders"
+                                [value]="vender.venderUid">{{vender.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </ng-container>
+        </fieldset>
+        <fieldset formArrayName="combinations" *ngIf="form.get('product')?.value.conbination">
+            <legend>
+                組合內容
+                <button mat-icon-button color="primary" (click)="addCombination()">
+                    <mat-icon>add_box</mat-icon>
+                </button>
+            </legend>
+            <ng-container *ngFor="let vender of combinationArray.controls; let idx = index">
+                <div [formGroupName]="idx" fxLayout="column" fxLayoutAlign="space-evenly center">
+                    商品{{idx + 1}}
+                    <mat-form-field appearance="outline">
+                        <mat-label>商品</mat-label>
+                        <mat-select formControlName="contentProductUid">
+                            <mat-option *ngFor="let product of products"
+                                [value]="product.productUid">{{product.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>數量</mat-label>
+                        <input matInput type="text" formControlName="quantity">
+                    </mat-form-field>
+                </div>
+            </ng-container>
+        </fieldset>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="space-around center" tool>
+    </div>
+</app-basic>
