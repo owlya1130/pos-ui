@@ -1,0 +1,132 @@
+<pos-header-sidemenu>
+    <div fxLayout="row" fxLayoutAlign="start center" class="content">
+        <div class="cart-info">
+            <pos-table [columnDefs]="displayedColumns" [dataSource]="dataSource" [enableSelect]="true"
+                (onSelect)="getSelections($event)" [style]="{height: '300px', border: 'solid 1px'}"></pos-table>
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+                <div fxLayout="row" fxLayoutAlign="start start" style="margin-left: 12px; margin-top: 10px;">
+                    <div>
+                        <button mat-icon-button color="warn" [disabled]="disableDelete">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                    <div style="margin-left: 125px;">
+                        <input type="string" placeholder="產品編號/條碼" style="height: 40px;">
+                        <span style="font-size: 20px;"> X </span>
+                        <input type="number" placeholder="數量" style="height: 40px; width: 100px;">
+                    </div>
+                    <div style="margin-left: 20px;">
+                        <button mat-raised-button style="background-color: #D9D9D9; font-size: x-large;">F6-搜尋</button>
+                    </div>
+                </div>
+                <div style="width: 500px;">
+                    <fieldset>
+                        <legend>訂單資料</legend>
+                        <div style="padding-top: 10px;">
+                            <mat-form-field appearance="outline">
+                                <mat-label>開單地點</mat-label>
+                                <input matInput [value]="'WW'" disabled>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>扣貨位置</mat-label>
+                                <input matInput [value]="'AA'" disabled>
+                            </mat-form-field>
+                        </div>
+                        <div style="padding-top: 10px;">
+                            <mat-form-field appearance="outline">
+                                <mat-label>整單折扣</mat-label>
+                                <input matInput type="number">
+                            </mat-form-field>
+                            <span style="font-size: 20px;"> X </span>
+                            <mat-form-field appearance="outline">
+                                <mat-label>折扣說明</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline">
+                                <mat-label>訂單備註</mat-label>
+                                <textarea matInput></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <div style="width: 50%;">
+                                <div>
+                                    <span>總件數</span>
+                                    <span>10</span>
+                                </div>
+                                <div>
+                                    <span>折扣</span>
+                                    <span>0</span><span>%</span>
+                                </div>
+                            </div>
+                            <div style="width: 50%;">
+
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <span>
+                                        總計
+                                    </span>
+                                    <span>NTD</span>
+                                </div>
+                                <div
+                                    style="background-color: #606EB6; text-align: right; padding-top: 10px; padding-right: 10px;">
+                                    <span style="color: white; font-weight:bold; font-size:xx-large;">{{2439 |
+                                        number}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-top: 10px;">
+                <div>
+                    <button mat-icon-button style="color: #B99104;">
+                        <mat-icon>lock</mat-icon>
+                    </button>
+                </div>
+                <div>
+                    <button mat-raised-button style="background-color: #AB3939; color: white; font-size: xx-large;">清除全部</button>
+                    <button mat-raised-button style="background-color: #40A04F; color: white; font-size: xx-large;">結帳</button>
+                </div>
+            </div>
+        </div>
+        <div class="member-info">
+            <div fxLayout="column" fxLayoutAlign="start center">
+                <button mat-icon-button>
+                    <mat-icon>person_search</mat-icon>
+                </button>
+                <div>
+                    <span>Anderson</span>
+                    <button mat-icon-button>
+                        <mat-icon>person</mat-icon>
+                    </button>
+                </div>
+                <mat-form-field appearance="outline">
+                    <mat-label>手機載具</mat-label>
+                    <input matInput value="/X16VP+P">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>會員點數</mat-label>
+                    <input matInput [value]="3000 | number">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>儲值餘額</mat-label>
+                    <input matInput [value]="'$'+(3000 | number)">
+                </mat-form-field>
+
+
+                <button mat-raised-button color="primary">儲值</button>
+                <button mat-raised-button color="primary">查看消費紀錄</button>
+                <mat-form-field appearance="fill">
+                    <mat-label>消費喜好排行</mat-label>
+                    <textarea matInput>
+                        516565
+                        6464684、
+                        84684864
+                        51641684
+                    </textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</pos-header-sidemenu>

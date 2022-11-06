@@ -1,0 +1,8 @@
+<div fxLayout="column" fxLayoutAlign="start center" class="menu-container">
+    <button mat-icon-button color="black" *ngFor="let menu of menus" [routerLink]="['/', menu.id]" class="menu-tile">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <mat-icon>{{menu.icon}}</mat-icon>
+            <span>{{menu.name}}</span>
+        </div>
+    </button>
+</div>

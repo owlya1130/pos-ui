@@ -1,0 +1,10 @@
+.menu-container {
+    width: 150px;
+    height: 100%;
+    background-color: #B3EBF8;
+}
+
+.menu-tile {
+    width: 150px;
+    height: 120px;
+}

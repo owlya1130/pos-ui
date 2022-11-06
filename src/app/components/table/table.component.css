@@ -1,0 +1,25 @@
+#table-container {
+    position: relative;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    font-weight: bold;
+    font-size: large;
+}
+
+input {
+    outline: none;
+    border: none;
+    width: calc(100% - 20px);
+    font-size: larger;
+}
+
+input:disabled {
+    outline: none;
+    border: none;
+}

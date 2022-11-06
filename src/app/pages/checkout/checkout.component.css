@@ -1,0 +1,27 @@
+.content {
+    width: 100%;
+    height: 100%;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cart-info {
+    height: 100%;
+    width: 100%;
+    margin-right: 30px;
+}
+
+.member-info {
+    height: 100%;
+    width: 300px;
+    font-size: large
+}
+
+.member-info input {
+    font-size: x-large;
+}
+
+.mat-input-element:disabled {
+    color: black;
+}
