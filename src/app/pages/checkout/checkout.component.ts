@@ -12,7 +12,7 @@ export interface ProductElement {
 @Component({
   selector: 'pos-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
 

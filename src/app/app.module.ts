@@ -13,6 +13,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HeaderSidemenuComponent } from './components/header-sidemenu/header-sidemenu.component';
 import { TableComponent } from './components/table/table.component';
+import { TestComponent } from './pages/test/test.component';
 
 
 
@@ -23,7 +24,8 @@ import { TableComponent } from './components/table/table.component';
     SideMenuComponent,
     CheckoutComponent,
     HeaderSidemenuComponent,
-    TableComponent
+    TableComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
