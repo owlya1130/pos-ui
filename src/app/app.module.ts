@@ -14,6 +14,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HeaderSidemenuComponent } from './components/header-sidemenu/header-sidemenu.component';
 import { TableComponent } from './components/table/table.component';
 import { TestComponent } from './pages/test/test.component';
+import { InputComponent } from './components/input/input.component';
 
 
 
@@ -25,7 +26,8 @@ import { TestComponent } from './pages/test/test.component';
     CheckoutComponent,
     HeaderSidemenuComponent,
     TableComponent,
-    TestComponent
+    TestComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,

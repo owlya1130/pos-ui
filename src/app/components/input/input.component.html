@@ -1,0 +1,9 @@
+<div [ngSwitch]="type">
+    <span style="margin-right: 5px;" [ngStyle]="{'font-size': fontSize}">{{label}}</span>
+    <ng-container *ngSwitchCase="'number'">
+        <input type="number" [placeholder]="placeholder" [(ngModel)]="numberValue" [ngStyle]="{'font-size': fontSize}"/>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <input type="text" [placeholder]="placeholder" [(ngModel)]="textValue" [ngStyle]="{'font-size': fontSize}" style="width: 500px;"/>
+    </ng-container>
+</div>
