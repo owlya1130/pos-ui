@@ -1,3 +1,22 @@
 <h1>This is test page.</h1>
 
-<pos-input type="text" label="abc" value="333sddd" > </pos-input>
+
+<div *ngFor="let input of inputs; let i = index;">
+	<label>{{i}}: </label>
+	<input type="text" [value]="input">
+</div>
+
+<button (click)="addInput()">新增</button>
+
+
+<div>問題二</div>
+
+<select>
+	<option *ngFor="let option of selectOptions" value="">{{option}}</option>
+</select>
+
+<select (change)="onChange($event)">
+	<option value="0">A</option>
+	<option value="1">B</option>
+	<option value="2">C</option>
+</select>

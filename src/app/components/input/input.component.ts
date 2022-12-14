@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
 
 @Component({
   selector: 'pos-input',
@@ -10,10 +10,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       provide: NG_VALUE_ACCESSOR,
       multi: true,
       useExisting: InputComponent
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: InputComponent
     }
   ]
 })
-export class InputComponent implements OnInit, ControlValueAccessor {
+export class InputComponent implements OnInit, ControlValueAccessor, Validator {
 
   @Input() type: "text" | "number" = "text";
 
@@ -21,9 +26,11 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   @Input() placeholder: string = "";
 
-  @Input() value: any;
+  @Input() value: any = null;
 
   @Input() fontSize: string = "20px";
+
+  @Input() inputWidth: string = "100px";
 
   textValue: string = "";
 
@@ -35,7 +42,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   isTouched = false;
 
-  isDisabled = false;
+  @Input("disabled") isDisabled = false;
 
   constructor() { }
 
@@ -67,6 +74,14 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  validate(control: AbstractControl<any, any>): ValidationErrors | null {
+    throw new Error('Method not implemented.');
+  }
+
+  registerOnValidatorChange?(fn: () => void): void {
+    throw new Error('Method not implemented.');
   }
 
 }
